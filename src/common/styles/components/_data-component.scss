@@ -1,0 +1,55 @@
+@import '../mixins';
+
+.data-component {
+    @include component-style();
+
+    .data-component-label {
+        @include component-label-style();
+    }
+    .data-container {
+        @include grid-style();
+
+        .data-item {
+            border: solid 2px transparent;
+            background-color: #f4f5f7;
+            border-radius: 6px;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,.1),0 2px 4px -1px rgba(0,0,0,.06);
+            width: 250px;
+            .label {
+                font-size: 18px;
+
+                margin-left: 10px;
+            }
+            .content-container {
+                height: 150px;
+                overflow: auto;
+
+                margin-left: 10px;
+
+                scrollbar-color: #777777 white;
+                scrollbar-width: thin;
+            }
+            .button-container {
+                button {
+                    margin-right: 20px;
+                    margin-bottom: 10px;
+                    margin-left: 10px;
+                    padding: 5px;
+                    background-color: rgb(65 86 159);
+                    border: solid 2px transparent;
+                    border-radius: 13px;
+                    cursor: pointer;
+                    color: white;
+
+                    &:hover {
+                        background-color: rgb(47 61 113);
+                    }
+
+                    &:active {
+                        background-color: rgb(22 35 83);
+                    }
+                }
+            }
+        }
+    }
+}
