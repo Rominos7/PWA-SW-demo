@@ -13,12 +13,17 @@ const SWRegistrationProvider  = ({ children }) => {
     const [status, setStatus] = useState(NEUTRAL_STATUS);
 
     const registerSW = async () => {
-        // for local setup sw needs to be generated via npm run buil and placedin public folder
+        // for local setup sw needs to be generated via npm run buil and placed in public folder
         // or use 'serve -s build' in order to serve content from build folder
         const wb = new Workbox('./service-worker.js');
         // show message in console for successfull SW activation
         window.addEventListener('activated', () => {
             messageLog('service worker was activated');
+        });
+
+        // Pure example that we can put diff sequences when SW takes controll over the page
+        window.addEventListener('controlling', () => {
+            window.location.reload();
         });
 
         // register SW
