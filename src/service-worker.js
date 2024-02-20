@@ -16,6 +16,13 @@ const navigationRoute = new NavigationRoute(handler, {
 registerRoute(navigationRoute);
 
 registerRoute(
+  /manifest|logo|favicon/,
+  new StaleWhileRevalidate({
+    cacheName: "additional-static-cache",
+  })
+);
+
+registerRoute(
   'https://swapi.dev/api/people/1',
   new CacheOnly({
     cacheName: "cache-only",
@@ -66,9 +73,6 @@ registerRoute(
   'https://swapi.dev/api/people/5',
   new StaleWhileRevalidate({
     cacheName: "stale-while-revalidate",
-    matchOptions: {
-      ignoreVary: true,
-    },
     plugins: [
       new CacheableResponsePlugin({
         statuses: [0, 200],
@@ -76,7 +80,6 @@ registerRoute(
     ],
   })
 );
-
 
 // eslint-disable-next-line no-restricted-globals,no-underscore-dangle
 self.addEventListener('message', (event) => {
