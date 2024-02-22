@@ -16,7 +16,7 @@ const navigationRoute = new NavigationRoute(handler, {
 registerRoute(navigationRoute);
 
 registerRoute(
-  /manifest|logo|favicon/,
+  /bundle|manifest|logo|favicon/,
   new StaleWhileRevalidate({
     cacheName: "additional-static-cache",
   })
