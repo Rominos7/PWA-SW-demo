@@ -6,7 +6,7 @@ export const CACHE_ONLY = 'Cache only';
 export const NETWORK_ONLY = 'Network only';
 export const CACHE_FIRST = 'Cache first';
 export const NETWORK_FIRST = 'Network first';
-export const STALE_WHILE_REVALIDATE = 'State while revalidate';
+export const STALE_WHILE_REVALIDATE = 'Stale while revalidate';
 
 export const urlHashMap = {
     [CACHE_ONLY]: `${REQUEST_BASE_URL}/1`,
